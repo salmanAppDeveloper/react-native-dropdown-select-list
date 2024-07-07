@@ -28,6 +28,7 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
         dropdownTextStyles,
         maxHeight,
         data,
+        defaultOption,
         searchicon = false,
         arrowicon = false,
         closeicon = false,
@@ -108,9 +109,49 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
     },[dropdownShown])
 
 
+    
+
+    React.useEffect(() => {
 
 
+        let sv = [...selectedval];
 
+        defaultOption.map(value=>{
+ 
+
+             let existing = selectedval?.indexOf(value)
+
+
+            // console.log(existing);
+
+            if(existing != -1  && existing != undefined){
+
+                  //setSelectedVal(sv); 
+                 //setSelected(sv);
+                
+                // onSelect()
+            }else{
+ 
+                if(save === 'value'){
+                   // setSelected([...sv,value])
+                }else{
+                   // setSelected([...sv,value])
+                }
+                sv.push(value)
+               
+
+                
+                // onSelect()
+            }
+            
+
+        })
+
+        setSelectedVal([...sv])
+
+    },[
+        setSelectedVal   
+    ])
 
     return(
         <View>
@@ -246,43 +287,43 @@ const MultipleSelectList: React.FC<MultipleSelectListProps> = ({
                                                 <TouchableOpacity style={[styles.option,dropdownItemStyles]} key={index} onPress={ () => {
 
                                                     
+ 
+
+                                                    // console.log(existing);
+
                                                     let existing = selectedval?.indexOf(value)
 
 
                                                     // console.log(existing);
-
+                                        
                                                     if(existing != -1  && existing != undefined){
-
+                                        
                                                         let sv = [...selectedval];
-                                                        sv.splice(existing,1) 
-                                                        setSelectedVal(sv);
 
+                                                        sv.splice(existing,1)
+                                                        let existing2 = sv?.indexOf(value)
+                                                        if(existing2 != -1  && existing2 != undefined){
+                                                            sv.splice(existing2,1)
 
-                                                        setSelected((val: any) => {
-                                                            let temp = [...val];
-                                                            temp.splice(existing,1) 
-                                                            return temp;
-                                                        });
+                                                        }
+
+                                                         setSelectedVal(sv);
+                                        
+                                        
+                                                        setSelected(sv);
                                                         
                                                         // onSelect()
                                                     }else{
+                                                        let sv = [...selectedval];
+                                        
                                                         if(save === 'value'){
-                                                            setSelected((val: any) => {
-                                                                let temp = [...new Set([...val,value])];
-                                                                return temp;
-                                                            })
+                                                            setSelected([...sv,value])
                                                         }else{
-                                                            setSelected((val: any) => {
-                                                                let temp = [...new Set([...val,key])];
-                                                                return temp;
-                                                            })
+                                                            setSelected([...sv,value])
                                                         }
                                                        
-                                                        setSelectedVal((val: any )=> {
-                                                            let temp = [...new Set([...val,value])];
-                                                            return temp;
-                                                        })
-                                    
+                                                        setSelectedVal([...sv,value])
+                                        
                                                         
                                                         // onSelect()
                                                     }
