@@ -19,12 +19,12 @@ export interface SelectListProps  {
     boxStyles?: ViewStyle,
 
     /**
-    *  	Additional styles for text of select box
+    *   Additional styles for text of select box
     */
     inputStyles?: TextStyle,
 
     /**
-    *  	Additional styles for dropdown scrollview
+    *   Additional styles for dropdown scrollview
     */
     dropdownStyles?:ViewStyle,
 
@@ -132,12 +132,12 @@ export interface MultipleSelectListProps  {
     boxStyles?: ViewStyle,
 
     /**
-    *  	Additional styles for text of select box
+    *   Additional styles for text of select box
     */
     inputStyles?: TextStyle,
 
     /**
-    *  	Additional styles for dropdown scrollview 
+    *   Additional styles for dropdown scrollview 
     */
     dropdownStyles?:ViewStyle,
 
@@ -164,7 +164,7 @@ export interface MultipleSelectListProps  {
     /**
     * The default option of the select list
     */
-    defaultOption?: { key: any, value: any },
+    defaultOption?: Array<string>,
 
     /**
     * Pass any JSX to this prop like Text, Image or Icon to show instead of search icon
