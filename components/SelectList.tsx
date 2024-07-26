@@ -92,14 +92,24 @@ const SelectList: React.FC<SelectListProps> =  ({
         if(!_firstRender && defaultOption && oldOption.current != defaultOption.key ){
             // oldOption.current != null
             oldOption.current = defaultOption.key
-            setSelected(defaultOption.value);
-            setSelectedVal(defaultOption.value);
+  if(save === "value"){
+                 setSelected(defaultOption.value);
+
+            }else{
+                setSelected(defaultOption.key);
+
+            }            setSelectedVal(defaultOption.value);
         }
         if(defaultOption && _firstRender && defaultOption.key != undefined){
             
             oldOption.current = defaultOption.key
-            setSelected(defaultOption.value);
-            setSelectedVal(defaultOption.value);
+  if(save === "value"){
+                 setSelected(defaultOption.value);
+
+            }else{
+                setSelected(defaultOption.key);
+
+            }            setSelectedVal(defaultOption.value);
         }
         
     },[defaultOption])
