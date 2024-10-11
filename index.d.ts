@@ -125,7 +125,7 @@ export interface MultipleSelectListProps  {
     * Placeholder text that will be displayed in the select box
     */
     placeholder?: string,
-
+    selectedPlaceHolder?: string,
     /**
     * Additional styles for select box
     */
